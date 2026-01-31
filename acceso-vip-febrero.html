@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel VIP - Capital Select</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { 'dark-blue': '#0a192f', 'mid-blue': '#112240', 'gold': '#ffd700' } }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+        body { font-family: 'Montserrat', sans-serif; background-color: #0a192f; color: white; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .data-card { background: #112240; border-left: 4px solid #ffd700; margin-bottom: 1.5rem; transition: 0.3s; }
+        .data-card:hover { transform: translateX(5px); }
+        .copy-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #ffd700; color: #0a192f; padding: 10px 20px; border-radius: 5px; font-weight: bold; display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+    <div id="toast" class="copy-toast">¡Email copiado al portapapeles!</div>
+
+    <div class="bg-gradient-to-b from-mid-blue to-dark-blue py-12 px-6 border-b border-gold/30 text-center">
+        <h1 class="text-4xl font-bold mb-2 uppercase tracking-tighter">Cartera VIP Desbloqueada</h1>
+        <p class="text-gold font-bold">FEBRERO 2026</p>
+    </div>
+
+    <main class="container mx-auto max-w-5xl px-4 mt-8">
+        
+        <div id="propiedades-container">
+            </div>
+
+        <script>
+            const miTelefono = "34611314437";
+            const miEmail = "pisos.de.embargos2020@gmail.com";
+
+            const inmuebles = [
+                {loc: "Abarán", precio: "17.000 €", d: "72 m² · 3 hab · 1 baño. Centro, vistas Valle de Ricote. Armarios, suelos gres."},
+                {loc: "Alguazas", precio: "9.500 €", d: "96 m² · 3 hab · 2 baños. Planta 3ª sin ascensor. Salida dirección Mula."},
+                {loc: "Alguazas", precio: "24.900 €", d: "105 m² · 3 hab · 1 baño. Núcleo urbano, zona residencial consolidada y tranquila."},
+                {loc: "Almansa", precio: "17.800 €", d: "68 m² · 2 hab · 1 baño. Zona tranquila, cerca de servicios y comercios."},
+                {loc: "Cartagena", precio: "22.000 €", d: "58 m² · 3 hab · 1 baño. Plaza Maestro José Palmis. Planta baja, zonas ajardinadas."},
+                {loc: "Crevillent", precio: "16.000 €", d: "68 m² · 3 hab · 1 baño. Casco urbano, buena conexión N-340."},
+                {loc: "Crevillent", precio: "19.000 €", d: "67 m² · 3 hab · 1 baño. C/ Molins, cerca de institutos y supermercados."},
+                {loc: "Elda", precio: "19.000 €", d: "56 m² · 1 hab · 1 baño. C/ Bellas Artes, zona San Crispín. Ideal inversión."},
+                {loc: "Elda", precio: "24.000 €", d: "80 m² · 3 hab · 1 baño. C/ Óscar Esplá, zona consolidada con servicios."},
+                {loc: "Elda (Ocupado)", precio: "22.000 €", d: "72 m² · 3 hab · 1 baño. C/ Alcoy. Sin ascensor. Cerca de estación."},
+                {loc: "El Palmar", precio: "20.000 €", d: "71 m² · 2 hab · 1 baño. C/ Álamos. Núcleo urbano, buenos accesos."},
+                {loc: "Girona", precio: "36.000 €", d: "71 m² · 3 hab · 1 baño. Plaza Llimoner. Extrarradio, buenos accesos."},
+                {loc: "Girona (Ocupado)", precio: "36.000 €", d: "81 m² · 3 hab · Sin ascensor. Calle Mimosa. Planta primera."},
+                {loc: "Girona (Ocupado)", precio: "25.000 €", d: "63 m² · 3 hab · 1 baño. Grup Vilarroja. Planta 3ª, buen estado."},
+                {loc: "Girona (Ocupado)", precio: "20.000 €", d: "58 m² · 3 hab · 1 baño. C/ Mimosa 7. Planta 2ª exterior."},
+                {loc: "Súria", precio: "9.000 €", d: "106 m² · 3 hab · 2 baños. Ctra Sant Salvador. Planta 1ª con patio."},
+                {loc: "Terrassa", precio: "27.000 €", d: "67 m² · 2 hab. Calle Historiador Cardús. Sant Pere Nord."},
+                {loc: "Villena (Ocupado)", precio: "7.000 €", d: "111 m² · 1 hab. Calle Rodríguez Las Cruces. Sin ascensor."},
+                {loc: "Novelda", precio: "28.500 €", d: "96 m² · 3 hab · 2 baños. Calle Galicia. Amplio y luminoso."},
+                {loc: "Santibáñez", precio: "19.000 €", d: "91 m² · 3 hab · 1 baño. Palencia. Planta 2ª, vestíbulo y cocina."},
+                {loc: "Santomera", precio: "18.400 €", d: "101 m² · 3 hab · 1 baño. C/ Juan Laorden. Cocina amueblada."}
+            ];
+
+            function contactarEmail(nombre) {
+                const subject = encodeURIComponent(`Interés Activo: ${nombre}`);
+                const mailtoUrl = `mailto:${miEmail}?subject=${subject}`;
+                
+                // Intenta abrir el correo
+                window.location.href = mailtoUrl;
+
+                // Copia el email al portapapeles como respaldo
+                navigator.clipboard.writeText(miEmail);
+                const toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 3000);
+            }
+
+            const container = document.getElementById('propiedades-container');
+            inmuebles.forEach((casa, i) => {
+                container.innerHTML += `
+                <div class="data-card p-6 rounded-r-xl shadow-lg">
+                    <div class="flex flex-col md:flex-row justify-between gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white">${casa.loc} - ${casa.precio}</h3>
+                            <p class="text-gray-400 mt-2 text-sm leading-relaxed">${casa.d}</p>
+                        </div>
+                        <div class="flex flex-wrap md:flex-col gap-2 min-w-[150px]">
+                            <a href="tel:+${miTelefono}" class="flex-1 bg-white/5 text-center py-2 rounded text-xs font-bold border border-white/10 hover:bg-white/10 transition italic"><i class="fas fa-phone-alt text-gold mr-1"></i> Llamar</a>
+                            <a href="https://wa.me/${miTelefono}?text=Hola, información sobre: ${casa.loc} - ${casa.precio}" target="_blank" class="flex-1 bg-green-600/20 text-green-400 text-center py-2 rounded text-xs font-bold border border-green-600/30 hover:bg-green-600/40 transition"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a>
+                            <button onclick="contactarEmail('${casa.loc}')" class="flex-1 bg-gold text-dark-blue text-center py-2 rounded text-xs font-bold hover:bg-white transition"><i class="fas fa-envelope mr-1"></i> Email</button>
+                        </div>
+                    </div>
+                </div>`;
+            });
+        </script>
+        
+        <div class="text-center mt-12 mb-20">
+            <a href="index.html" class="text-gray-500 hover:text-gold text-sm underline">Volver a la página principal</a>
+        </div>
+    </main>
+</body>
+</html>
