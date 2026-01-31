@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Select - Viviendas de Embargo y Lujo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-blue': '#0a192f',
+                        'mid-blue': '#112240',
+                        'gold': '#ffd700',
+                        'light-gold': '#e6c35c'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #0a192f; color: white; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .hero-section {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.9)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1740&q=80');
+            background-size: cover; background-position: center; height: 75vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+        }
+        
+        .property-card { transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+        .property-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        
+        .property-image { height: 240px; width: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        
+        .gold-button {
+            background: linear-gradient(to right, #ffd700, #e6c35c);
+            color: #0a192f; font-weight: 700; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .gold-button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4); }
+        
+        .vip-card-compact {
+            background: #112240;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="py-4 px-6 md:px-12 fixed w-full z-50 bg-dark-blue/90 backdrop-blur-sm border-b border-gold/20">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="bg-gradient-to-r from-gold to-light-gold text-dark-blue font-bold text-lg px-3 py-1 rounded shadow-lg uppercase tracking-tight">CAPITAL SELECT</div>
+            <nav class="hidden md:block text-xs uppercase tracking-widest font-bold">
+                <ul class="flex space-x-6">
+                    <li><a href="#inicio" class="hover:text-gold transition-colors">Inicio</a></li>
+                    <li><a href="#premium" class="text-gold">Membresía VIP</a></li>
+                    <li><a href="#embargo" class="hover:text-gold transition-colors">Embargos</a></li>
+                    <li><a href="#lujo" class="hover:text-gold transition-colors">Lujo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-section">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-gold mb-4 uppercase tracking-tighter">CAPITAL SELECT</h1>
+            <h2 class="text-2xl md:text-4xl font-bold text-white mb-4 uppercase">Inversión Inteligente y Oportunidades Únicas</h2>
+            <p class="text-lg md:text-xl text-gray-300 tracking-[0.2em] uppercase font-light">En activos bancarios y de lujo</p>
+        </div>
+    </section>
+
+    <section id="premium" class="py-12 px-4 bg-dark-blue border-y border-white/5">
+        <div class="container mx-auto text-center">
+            <div class="vip-card-compact p-8 rounded-xl shadow-2xl">
+                <h3 class="text-gold font-bold text-xs tracking-[0.3em] uppercase mb-2">Membresía Premium</h3>
+                <h4 class="text-2xl font-bold text-white mb-2 italic">PASE VIP COMPLETO</h4>
+                <p class="text-gray-400 text-sm mb-6 uppercase tracking-tighter leading-tight">No pagues por cada propiedad. <br> Obtén el listado completo.</p>
+                
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <span class="text-5xl font-bold text-white">19,90 €</span>
+                    <div class="text-left text-[10px] text-gray-500 border-l border-white/20 pl-4 uppercase leading-tight">
+                        Pago único<br>Acceso a Todo
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-2 text-left text-xs mb-8 max-w-[280px] mx-auto border-t border-white/5 pt-6">
+                    <div class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Acceso a los 21 embargos</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Ubicaciones exactas</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-check text-gold"></i> Contacto directo</div>
+                </div>
+
+                <a href="https://buy.stripe.com/test_9B614nd2peK49vL4qI4sE02" target="_blank" class="gold-button w-full py-5 rounded-lg text-sm font-black">
+                    DESBLOQUEAR TODO EL CATÁLOGO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="embargo" class="py-16 px-4 md:px-8 bg-mid-blue text-center">
+        <h2 class="text-3xl font-bold text-gold mb-12 uppercase italic tracking-widest border-b border-gold/10 pb-4 inline-block">Viviendas de Embargo</h2>
+        <div class="container mx-auto max-w-7xl">
+            <div id="grid-pisos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                </div>
+        </div>
+    </section>
+
+    <section id="lujo" class="py-20 px-4 md:px-8 bg-dark-blue">
+    <div class="container mx-auto max-w-7xl text-center">
+        <h2 class="section-title text-4xl font-bold text-gold mb-16">Propiedades de Lujo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+            
+            <div class="property-card bg-mid-blue rounded-xl border border-gold/10">
+                <img src="img/vivienda-lujo/jaen-01/01.jpg" alt="Chalet independiente Jaén" class="property-image">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-1">Chalet independiente Jaén</h3>
+                    <p class="text-2xl text-gold font-bold mb-4">1.500.000 €</p>
+                    <a href="https://buy.stripe.com/test_9B614nd2peK49vL4qI4sE02" target="_blank" class="gold-button w-full py-3 rounded-lg">
+                        Desbloquear €10,90
+                    </a>
+                </div>
+            </div>
+
+            <div class="property-card bg-mid-blue rounded-xl border border-gold/10">
+                <img src="img/vivienda-lujo/calpe-01/01.jpg" alt="Chalet independiente Calpe" class="property-image">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-1">Chalet independiente en Calpe</h3>
+                    <p class="text-2xl text-gold font-bold mb-4">865.000 €</p>
+                    <a href="https://buy.stripe.com/test_9B614nd2peK49vL4qI4sE02" target="_blank" class="gold-button w-full py-3 rounded-lg">
+                        Desbloquear €10,90
+                    </a>
+                </div>
+            </div>
+
+            <div class="property-card bg-mid-blue rounded-xl border border-gold/10">
+              <img src="img/vivienda-lujo/cabrils-01/01.jpg" alt="Chalet independiente Cabrils" class="property-image">
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold mb-1">Chalet independiente en Cabrils</h3>
+                    <p class="text-2xl text-gold font-bold mb-4">790.000 €</p>
+                    <a href="https://buy.stripe.com/test_9B614nd2peK49vL4qI4sE02" target="_blank" class="gold-button w-full py-3 rounded-lg">
+                        Desbloquear €10,90
+        
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const activos = [
+            {loc: "Novelda", precio: "28.500 €", img: "img/pisos/novelda-01/01.jpg"},
+            {loc: "Alguazas", precio: "9.500 €", img: "img/pisos/alguazas-01/01.jpg"},
+            {loc: "Alguazas", precio: "24.900 €", img: "img/pisos/alguazas-02/01.jpg"},
+            {loc: "Almansa", precio: "17.800 €", img: "img/pisos/almansa-01/01.jpg"},
+            {loc: "Cartagena", precio: "22.000 €", img: "img/pisos/cartagena-01/01.jpg"},
+            {loc: "Crevillent", precio: "16.000 €", img: "img/pisos/crevillent-01/01.jpg"},
+            {loc: "Crevillent", precio: "19.000 €", img: "img/pisos/crevillent-02/01.jpg"},
+            {loc: "Elda", precio: "19.000 €", img: "img/pisos/elda-01/01.jpg"},
+            {loc: "Elda", precio: "24.000 €", img: "img/pisos/elda-02/01.jpg"},
+            {loc: "Elda", precio: "22.000 €", img: "img/pisos/elda-03/01.jpg"},
+            {loc: "El Palmar", precio: "20.000 €", img: "img/pisos/palmar-01/01.jpg"},
+            {loc: "Girona", precio: "36.000 €", img: "img/pisos/girona-01/01.jpg"},
+            {loc: "Girona", precio: "36.000 €", img: "img/pisos/girona-02/01.jpg"},
+            {loc: "Girona", precio: "25.000 €", img: "img/pisos/girona-03/01.jpg"},
+            {loc: "Girona", precio: "20.000 €", img: "img/pisos/girona-04/01.jpg"},
+            {loc: "Abarán", precio: "17.000 €", img: "img/pisos/abaran-01/01.jpg"},
+            {loc: "Santibáñez", precio: "19.000 €", img: "img/pisos/palencia-01/01.jpg"},
+            {loc: "Santomera", precio: "18.400 €", img: "img/pisos/santomera-01/01.jpg"},
+            {loc: "Súria", precio: "9.000 €", img: "img/pisos/suria-01/01.jpg"},
+            {loc: "Terrassa", precio: "27.000 €", img: "img/pisos/terrassa-01/01.jpg"},
+            {loc: "Villena", precio: "7.000 €", img: "img/pisos/villena-01/01.jpg"}
+        ];
+
+        const grid = document.getElementById('grid-pisos');
+        activos.forEach(p => {
+            grid.innerHTML += `
+                <div class="property-card bg-dark-blue rounded-lg overflow-hidden border border-gold/5">
+                    <img src="${p.img}" alt="${p.loc}" class="property-image">
+                    <div class="p-4 text-center">
+                        <h3 class="text-sm font-bold uppercase mb-1">${p.loc}</h3>
+                        <p class="text-xl text-gold font-bold mb-4">${p.precio}</p>
+                        <a href="https://buy.stripe.com/test_9B614nd2peK49vL4qI4sE02" target="_blank" class="gold-button w-full py-3 rounded text-[11px] font-bold">
+                            DESBLOQUEAR POR 10,90€
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+
+     <footer class="bg-mid-blue py-10 border-t border-gold/20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div class="text-xs text-gray-400">
+                <h3 class="text-gold font-bold mb-2">CAPITAL SELECT</h3>
+      <p>Confianza y Transparencia
+Trabajamos con entidades financieras y administraciones públicas para ofrecer propiedades verificadas y con documentación completa.</p>
+      </div>
+            
+       <div class="md:text-center">
+                <h3 class="text-xl font-bold text-gold mb-6 
+uppercase border-b border- gold/20pb2">Ubicación</h3>
+                
+<p class="text-white font-bold text-lg">San Vicente del Raspeig</p>
+                
+<p class="text-gray-400 text-sm uppercase">03690 Alicante, España</p>
+            </div>
+            <div class="text-xs text-gray-400">
+                <h3 class="text-gold font-bold mb-2">HORARIO</h3>
+                <p>Lun-Vie: 9:00-14:00 | 16:00-18:00</p>
+                <p class="text-red-500">Sáb-Dom: Cerrado</p>
+            </div>
+            <div class="text-[10px] text-gray-600 uppercase tracking-widest flex items-end md:justify-end">
+                &copy; 2026 CAPITAL SELECT
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
